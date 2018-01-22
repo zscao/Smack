@@ -11,6 +11,10 @@ import UIKit
 class ChannelViewController: UIViewController {
 
     @IBOutlet weak var loginButton: UIButton!
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        let name = segue.identifier!
+        print("back from unwind segue " + name)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
