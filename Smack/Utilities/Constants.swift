@@ -14,6 +14,7 @@ typealias CompletionHandler = (_ success: Bool, _ messsage: String) -> ()
 let BASE_URL = "https://cschatchat.herokuapp.com/v1"
 let URL_REGISTER = "\(BASE_URL)/account/register"
 let URL_LOGIN = "\(BASE_URL)/account/login"
+let URL_ADD_USER = "\(BASE_URL)/user/add"
 
 
 // SEGUES
@@ -30,3 +31,4 @@ let USER_EMAIL = "userEmail"
 let DEFAULT_HEADER: [String: String] = [
     "Content-Type": "application/json; charset=utf-8"
 ]
+
