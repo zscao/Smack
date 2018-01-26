@@ -32,3 +32,6 @@ let DEFAULT_HEADER: [String: String] = [
     "Content-Type": "application/json; charset=utf-8"
 ]
 
+// Notification constants
+let NOTIF_USER_DATA_CHANGED = Notification.Name("notifUserDataChanged")
+

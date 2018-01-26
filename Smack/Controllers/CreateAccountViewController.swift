@@ -44,6 +44,9 @@ class CreateAccountViewController: UIViewController {
                             
                             if(success) {
                                 self.performSegue(withIdentifier: UNWIND_TO_CHANNEL, sender: nil)
+                                
+                                NotificationCenter.default.post(name: NOTIF_USER_DATA_CHANGED, object: nil)
+                                
                             } else {
                                 
                             }
