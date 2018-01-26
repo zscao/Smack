@@ -8,11 +8,12 @@
 
 import Foundation
 
-typealias CompletionHandler = (_ Success: Bool) -> ()
+typealias CompletionHandler = (_ success: Bool, _ messsage: String) -> ()
 
 // URLs
-let BASE_URL = "http://localhost:3005/v1"
+let BASE_URL = "https://cschatchat.herokuapp.com/v1"
 let URL_REGISTER = "\(BASE_URL)/account/register"
+let URL_LOGIN = "\(BASE_URL)/account/login"
 
 
 // SEGUES
@@ -25,3 +26,7 @@ let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
 
+// HTTP RESQUEST
+let DEFAULT_HEADER: [String: String] = [
+    "Content-Type": "application/json; charset=utf-8"
+]
