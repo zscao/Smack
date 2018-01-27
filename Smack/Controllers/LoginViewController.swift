@@ -29,6 +29,16 @@ class LoginViewController: UIViewController {
             print(message)
             
             if success {
+                
+                AuthService.instance.findUserByEmail(email: username) { (success, message) in
+                    print(message)
+                    if success {
+                        self.dismiss(animated: true, completion: nil)
+                        NotificationCenter.default.post(name: NOTIF_USER_DATA_CHANGED, object: nil)
+                    } else {
+                        self.errorLabel.text = message
+                    }
+                }
                 //self.dismiss(animated: true, completion: nil)
                 //NotificationCenter.default.post(name: NOTIF_USER_DATA_CHANGED, object: nil)
             } else {

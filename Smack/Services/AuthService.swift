@@ -121,26 +121,42 @@ class AuthService {
             "avatarColor": avatarColor
         ]
         
-        let header: [String: String] = [
-            "Authorization": "Bearer \(AuthService.instance.authToken)",
-            "Content-Type": "application/json; charset=utf-8"
-        ]
-        
-        Alamofire.request(URL_ADD_USER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+        Alamofire.request(URL_ADD_USER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             
             if(response.result.error == nil) {
                 guard let data = response.data else {
                     completion(false, "error data")
                     return
                 }
-                let json = JSON(data)
-                let id = json["id"].stringValue
-                let color = json["avatarColor"].stringValue
-                let avatarName = json["avatarName"].stringValue
-                let email = json["email"].stringValue
-                let name = json["name"].stringValue
+                self.userData = self.getUserInfoData(data: data)
                 
-                self.userData = UserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
+                completion(true, "user created.")
+                
+            } else {
+                self.userData = UserData()
+                debugPrint(response.result.error as Any)
+                completion(false, "error")
+            }
+        }
+    }
+    
+    func findUserByEmail(email: String, completion: @escaping CompletionHandler) {
+        
+        if authToken == "" {
+            completion(false, "Not authorised")
+            return;
+        }
+        
+        let lowerCasedEmail = email.lowercased()
+        
+        Alamofire.request("\(URL_FIND_USER_BY_EMAIL)\(lowerCasedEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            
+            if(response.result.error == nil) {
+                guard let data = response.data else {
+                    completion(false, "error data")
+                    return
+                }
+                self.userData = self.getUserInfoData(data: data)
                 
                 completion(true, "user created.")
                 
@@ -158,5 +174,16 @@ class AuthService {
         self.userEmail = ""
         
         self.userData = UserData()
+    }
+    
+    private func getUserInfoData(data: Data) -> UserData {
+        let json = JSON(data)
+        let id = json["_id"].stringValue
+        let color = json["avatarColor"].stringValue
+        let avatarName = json["avatarName"].stringValue
+        let email = json["email"].stringValue
+        let name = json["name"].stringValue
+    
+        return UserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
     }
 }
