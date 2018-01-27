@@ -78,6 +78,8 @@ class PickAvatarViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if selectedAvatar == "" { return }
+        
         delegate?.pass(data: selectedAvatar)
     }
     
