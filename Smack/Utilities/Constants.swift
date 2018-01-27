@@ -10,6 +10,9 @@ import Foundation
 
 typealias CompletionHandler = (_ success: Bool, _ messsage: String) -> ()
 
+// DEFAULTS
+let PROFILE_DEFAULT = "profileDefault"
+
 // URLs
 let BASE_URL = "https://cschatchat.herokuapp.com/v1"
 let URL_REGISTER = "\(BASE_URL)/account/register"

@@ -151,4 +151,12 @@ class AuthService {
             }
         }
     }
+    
+    func logoutUser() {
+        self.isLoggedIn = false
+        self.authToken = ""
+        self.userEmail = ""
+        
+        self.userData = UserData()
+    }
 }
