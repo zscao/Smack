@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateAccountViewController: UIViewController {
+class CreateAccountViewController: UIViewController, isAbleToReceiveStringData {
 
     
     @IBOutlet weak var usernameTxt: UITextField!
@@ -63,7 +63,21 @@ class CreateAccountViewController: UIViewController {
         }
     }
     
+    func pass(data: String) {
+        if data != "" {
+            self.avatarName = data
+            userImg.image = UIImage(named: self.avatarName)
+        }
+    }
+    
     @IBAction func chooseAvatarPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_PICK_AVATAR, sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let pickAvatarVC = segue.destination as? PickAvatarViewController {
+            pickAvatarVC.delegate = self
+        }
     }
     
     @IBAction func generateBgColorPressed(_ sender: Any) {

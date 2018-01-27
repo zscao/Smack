@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smack/Controllers/CreateAccountViewController.swift"
-            timestampString = "538667868.2228841"
+            timestampString = "538728575.315348"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "closeButtonPressed(_:)"
-            landmarkType = "7">
+            startingLineNumber = "90"
+            endingLineNumber = "90">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

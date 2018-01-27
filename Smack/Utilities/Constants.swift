@@ -20,6 +20,7 @@ let URL_ADD_USER = "\(BASE_URL)/user/add"
 // SEGUES
 let TO_LOGIN = "login"
 let TO_CREATE_ACCOUNT = "createAccount"
+let TO_PICK_AVATAR = "pickAvatar"
 let UNWIND_TO_CHANNEL = "unwindToChannel"
 
 // USER DEFAULTS

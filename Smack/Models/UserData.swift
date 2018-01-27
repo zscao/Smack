@@ -27,4 +27,8 @@ class UserData {
     public private(set) var avatarName: String
     public private(set) var email: String
     public private(set) var name: String
+    
+    func setAvatarName(_ name: String) {
+        self.avatarName = name
+    }
 }
