@@ -125,7 +125,7 @@ class AuthService {
                 
                 // get user data
                 self.findUserByEmail(email: lowerCasedEmail) { (success, message, data) in
-                    print(message)
+                    debugPrint(message)
                     if success {
                         if let d = data as UserData! {
                             self.userData = d

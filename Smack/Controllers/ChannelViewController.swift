@@ -51,5 +51,19 @@ class ChannelViewController: UIViewController {
             loginButton.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
         }
+        
+        refreshChannel()
+    }
+    
+    private func refreshChannel() {
+        MessageService.instance.getAllChannels { (success, message) in
+            debugPrint(message)
+            
+            if success {
+                for channel in MessageService.instance.channels {
+                    debugPrint(channel.title)
+                }
+            }
+        }
     }
 }

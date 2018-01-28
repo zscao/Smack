@@ -15,6 +15,8 @@
 		B34AD29A20157DD800AAB95A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AD29920157DD800AAB95A /* LoginViewController.swift */; };
 		B34AD29C2015815200AAB95A /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AD29B2015815200AAB95A /* CreateAccountViewController.swift */; };
 		B3533E91201A094200CC12FA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3533E90201A094200CC12FA /* AuthService.swift */; };
+		B379F91D201DEF5600773336 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379F91C201DEF5600773336 /* MessageService.swift */; };
+		B379F91F201DEFB300773336 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B379F91E201DEFB300773336 /* Channel.swift */; };
 		B39CAF0A201C3DA800BD4296 /* PickAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CAF09201C3DA800BD4296 /* PickAvatarViewController.swift */; };
 		B39CAF0C201C419600BD4296 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CAF0B201C419600BD4296 /* AvatarCell.swift */; };
 		B39CAF0E201C501100BD4296 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39CAF0D201C501100BD4296 /* Protocols.swift */; };
@@ -40,6 +42,8 @@
 		B34AD29920157DD800AAB95A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B34AD29B2015815200AAB95A /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		B3533E90201A094200CC12FA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B379F91C201DEF5600773336 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		B379F91E201DEFB300773336 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		B39CAF09201C3DA800BD4296 /* PickAvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickAvatarViewController.swift; sourceTree = "<group>"; };
 		B39CAF0B201C419600BD4296 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		B39CAF0D201C501100BD4296 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				B3533E90201A094200CC12FA /* AuthService.swift */,
+				B379F91C201DEF5600773336 /* MessageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				B3323658201B4760001720F5 /* UserData.swift */,
+				B379F91E201DEFB300773336 /* Channel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,7 +325,9 @@
 				B3323657201AC3C7001720F5 /* RoundedButton.swift in Sources */,
 				B39CAF0A201C3DA800BD4296 /* PickAvatarViewController.swift in Sources */,
 				B3E330012011C70200112B73 /* AppDelegate.swift in Sources */,
+				B379F91F201DEFB300773336 /* Channel.swift in Sources */,
 				B3EDE7EC2012197800E320E4 /* ChatViewController.swift in Sources */,
+				B379F91D201DEF5600773336 /* MessageService.swift in Sources */,
 				B3533E91201A094200CC12FA /* AuthService.swift in Sources */,
 				B3323659201B4760001720F5 /* UserData.swift in Sources */,
 				B34AD2952015631B00AAB95A /* GradientView.swift in Sources */,
