@@ -19,8 +19,21 @@ class ChatViewController: UIViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
+        loadChannels()
     }
 
-
+    
+    private func loadChannels() {
+        MessageService.instance.getAllChannels { (success, message) in
+            debugPrint(message)
+            
+            if success {
+                for channel in MessageService.instance.channels {
+                    debugPrint(channel.name)
+                }
+            }
+        }
+    }
 
 }

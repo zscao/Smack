@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ChannelViewController: UIViewController {
-
+class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userImg: UIImageView!
+    @IBOutlet weak var channelsView: UITableView!
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         let name = segue.identifier!
@@ -23,6 +24,9 @@ class ChannelViewController: UIViewController {
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataChanged(_:)), name: NOTIF_USER_DATA_CHANGED, object: nil)
+
+        channelsView.delegate = self
+        channelsView.dataSource = self
         
         setupView()
     }
@@ -41,8 +45,31 @@ class ChannelViewController: UIViewController {
     @objc func userDataChanged(_ notif: Notification) {
         setupView()
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return MessageService.instance.channels.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = channelsView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as? ChannelCell {
+            
+            let channel = MessageService.instance.channels[indexPath.item]
+            cell.configureCell(channel: channel)
+            return cell
+            
+        } else {
+            return ChannelCell()
+        }
+    }
 
     private func setupView() {
+        
         if AuthService.instance.isLoggedIn && AuthService.instance.userData.isEmpty == false {
             loginButton.setTitle(AuthService.instance.userData.name, for: .normal)
             userImg.image = UIImage(named: AuthService.instance.userData.avatarName)
@@ -50,20 +77,6 @@ class ChannelViewController: UIViewController {
         else {
             loginButton.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
-        }
-        
-        refreshChannel()
-    }
-    
-    private func refreshChannel() {
-        MessageService.instance.getAllChannels { (success, message) in
-            debugPrint(message)
-            
-            if success {
-                for channel in MessageService.instance.channels {
-                    debugPrint(channel.title)
-                }
-            }
         }
     }
 }

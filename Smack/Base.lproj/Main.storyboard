@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+        </array>
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
@@ -89,28 +92,34 @@
                                 <rect key="frame" x="0.0" y="130" width="295" height="425"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yrG-Gy-I8U">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="channelCell" id="Izm-X6-wa6" customClass="ChannelCell" customModule="Smack" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="295" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yrG-Gy-I8U" id="bAe-fP-kJJ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Izm-X6-wa6" id="0Mi-bt-Q7l">
                                             <rect key="frame" x="0.0" y="0.0" width="295" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf2-OL-wLj">
-                                                    <rect key="frame" x="35" y="11" width="265" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#gernal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kNa-Ik-CQc">
+                                                    <rect key="frame" x="35" y="2" width="225" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="WTd-g2-kBN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Lf2-OL-wLj" firstAttribute="trailing" secondItem="bAe-fP-kJJ" secondAttribute="trailingMargin" constant="20" id="8Vk-mt-dwd"/>
-                                                <constraint firstItem="Lf2-OL-wLj" firstAttribute="centerY" secondItem="bAe-fP-kJJ" secondAttribute="centerY" id="Cx1-eM-0iq"/>
-                                                <constraint firstItem="Lf2-OL-wLj" firstAttribute="leading" secondItem="bAe-fP-kJJ" secondAttribute="leadingMargin" constant="20" id="DrX-1R-gFk"/>
+                                                <constraint firstItem="kNa-Ik-CQc" firstAttribute="leading" secondItem="0Mi-bt-Q7l" secondAttribute="leadingMargin" constant="20" id="BLX-dP-4pQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="kNa-Ik-CQc" secondAttribute="bottom" constant="2" id="dPM-Xf-ETX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kNa-Ik-CQc" secondAttribute="trailing" constant="20" id="geR-sB-ucI"/>
+                                                <constraint firstItem="kNa-Ik-CQc" firstAttribute="top" secondItem="0Mi-bt-Q7l" secondAttribute="top" constant="2" id="lkh-IE-KbM"/>
+                                                <constraint firstItem="kNa-Ik-CQc" firstAttribute="centerY" secondItem="0Mi-bt-Q7l" secondAttribute="centerY" id="pCO-Bh-ofe"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="kNa-Ik-CQc" id="8SG-fS-Wpj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -153,6 +162,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="channelsView" destination="PBZ-S5-tIf" id="KYY-KL-LaR"/>
                         <outlet property="loginButton" destination="Rjd-mf-C47" id="M0l-qm-TDY"/>
                         <outlet property="userImg" destination="qzH-dP-AoL" id="m2q-IB-Qnd"/>
                         <segue destination="Icl-wW-5Pg" kind="show" identifier="login" id="T37-sq-WRl"/>

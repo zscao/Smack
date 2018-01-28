@@ -33,10 +33,10 @@ class MessageService {
                 if let json = JSON(data).array {
                     for item in json {
                         let id = item["_id"].stringValue
-                        let title = item["title"].stringValue
+                        let name = item["name"].stringValue
                         let description = item["description"].stringValue
                         
-                        let channel = Channel(title: title, description: description, id: id)
+                        let channel = Channel(name: name, description: description, id: id)
                         self.channels.append(channel)
                     }
                     completion(true, "total \(json.count) channels")
