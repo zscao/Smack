@@ -9,6 +9,7 @@
 import Foundation
 
 typealias CompletionHandler = (_ success: Bool, _ messsage: String) -> ()
+typealias CompletionWithDataHandler<T> = (_ success: Bool, _ message: String, _ data: T?) -> ()
 
 // DEFAULTS
 let PROFILE_DEFAULT = "profileDefault"
@@ -31,6 +32,7 @@ let UNWIND_TO_CHANNEL = "unwindToChannel"
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+let USER_DATA = "userData"
 
 // HTTP RESQUEST
 let DEFAULT_HEADER: [String: String] = [

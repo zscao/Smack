@@ -13,7 +13,7 @@ import SwiftyJSON
 class AuthService {
     static let instance = AuthService()
     private init() {
-        self.userData = UserData()
+        // self.userData = UserData()
     }
     
     private let defaults = UserDefaults.standard
@@ -45,7 +45,19 @@ class AuthService {
         }
     }
     
-    public private(set) var userData: UserData
+    var userData: UserData {
+        get {
+            if let obj = defaults.value(forKey: USER_DATA) as? NSData {
+                return NSKeyedUnarchiver.unarchiveObject(with: obj as Data) as! UserData
+            }
+            return UserData()
+        }
+        set {
+            defaults.set(NSKeyedArchiver.archivedData(withRootObject: newValue), forKey: USER_DATA)
+        }
+    }
+    
+    //public private(set) var userData: UserData
     
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler) {
         let lowerCasedEmail = email.lowercased()
@@ -97,12 +109,36 @@ class AuthService {
                     completion(false, "error data")
                     return
                 }
+                
                 let json = JSON(data)
+                let token = json["token"].stringValue
+                
+                if token == "" {
+                    let message = json["message"].stringValue
+                    completion(false, message)
+                    return
+                }
+                
+                self.authToken = token
                 self.userEmail = json["user"].stringValue
-                self.authToken = json["token"].stringValue
                 self.isLoggedIn = true
                 
-                completion(true, "logged in")
+                // get user data
+                self.findUserByEmail(email: lowerCasedEmail) { (success, message, data) in
+                    print(message)
+                    if success {
+                        if let d = data as UserData! {
+                            self.userData = d
+                            completion(true, "logged in")
+                        } else {
+                            self.logoutUser()
+                            completion(false, "cannot find user profile")
+                        }
+                    } else {
+                        self.logoutUser()
+                        completion(false, message)
+                    }
+                }
                 
             } else {
                 debugPrint(response.result.error as Any)
@@ -140,10 +176,10 @@ class AuthService {
         }
     }
     
-    func findUserByEmail(email: String, completion: @escaping CompletionHandler) {
+    func findUserByEmail(email: String, completion: @escaping CompletionWithDataHandler<UserData>) {
         
         if authToken == "" {
-            completion(false, "Not authorised")
+            completion(false, "Not authorised", nil)
             return;
         }
         
@@ -153,17 +189,17 @@ class AuthService {
             
             if(response.result.error == nil) {
                 guard let data = response.data else {
-                    completion(false, "error data")
+                    completion(false, "error data", nil)
                     return
                 }
-                self.userData = self.getUserInfoData(data: data)
                 
-                completion(true, "user created.")
+                let result = self.getUserInfoData(data: data)
+                completion(true, "user loaded.", result)
                 
             } else {
                 self.userData = UserData()
                 debugPrint(response.result.error as Any)
-                completion(false, "error")
+                completion(false, "error", nil)
             }
         }
     }

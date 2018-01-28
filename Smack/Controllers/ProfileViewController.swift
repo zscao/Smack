@@ -38,6 +38,8 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupView() {
+        print(AuthService.instance.userData.isEmpty)
+        
         if AuthService.instance.isLoggedIn && AuthService.instance.userData.isEmpty == false {
             let data = AuthService.instance.userData
             

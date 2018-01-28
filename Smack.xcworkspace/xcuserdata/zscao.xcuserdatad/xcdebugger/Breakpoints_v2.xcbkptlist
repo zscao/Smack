@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Smack/Services/AuthService.swift"
-            timestampString = "538754831.236792"
+            timestampString = "538816137.197476"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "registerUser(email:password:completion:)"
             landmarkType = "7">
          </BreakpointContent>

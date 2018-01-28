@@ -22,8 +22,9 @@ class ChannelViewController: UIViewController {
         super.viewDidLoad()
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
-        
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataChanged(_:)), name: NOTIF_USER_DATA_CHANGED, object: nil)
+        
+        setupView()
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -38,6 +39,10 @@ class ChannelViewController: UIViewController {
     }
     
     @objc func userDataChanged(_ notif: Notification) {
+        setupView()
+    }
+
+    private func setupView() {
         if AuthService.instance.isLoggedIn && AuthService.instance.userData.isEmpty == false {
             loginButton.setTitle(AuthService.instance.userData.name, for: .normal)
             userImg.image = UIImage(named: AuthService.instance.userData.avatarName)
@@ -47,5 +52,4 @@ class ChannelViewController: UIViewController {
             userImg.image = UIImage(named: "menuProfileIcon")
         }
     }
-
 }

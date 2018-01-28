@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserData {
+class UserData: NSObject, NSCoding {
     
     init(id: String, color: String, avatarName: String, email: String, name: String) {
         self.id = id
@@ -18,17 +18,33 @@ class UserData {
         self.name = name
     }
     
-    convenience init() {
+    convenience override init() {
         self.init(id: "", color: "", avatarName: "", email: "", name: "")
     }
     
-    public private(set) var id: String
-    public private(set) var avatarColor: String
-    public private(set) var avatarName: String
-    public private(set) var email: String
-    public private(set) var name: String
+    var id: String
+    var avatarColor: String
+    var avatarName: String
+    var email: String
+    var name: String
     
     var isEmpty: Bool {
         get { return self.id == "" }
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.id, forKey: "id")
+        aCoder.encode(self.avatarColor, forKey: "avatarColor")
+        aCoder.encode(self.avatarName, forKey: "avatarName")
+        aCoder.encode(self.email, forKey: "email")
+        aCoder.encode(self.name, forKey: "name")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.avatarColor = aDecoder.decodeObject(forKey: "avatarColor") as! String
+        self.avatarName = aDecoder.decodeObject(forKey: "avatarName") as! String
+        self.email = aDecoder.decodeObject(forKey: "email") as! String
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
     }
 }
