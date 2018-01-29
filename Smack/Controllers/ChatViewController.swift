@@ -35,6 +35,14 @@ class ChatViewController: UIViewController {
                 NotificationCenter.default.post(name: NOTIF_CHANNELS_LIST_UPDATED, object: nil)
             }
         }
+        
+        SocketService.instance.getChannel { (success, message) in
+            debugPrint(message)
+            
+            if success {
+                NotificationCenter.default.post(name: NOTIF_CHANNELS_LIST_UPDATED, object: nil)
+            }
+        }
     }
 
 }

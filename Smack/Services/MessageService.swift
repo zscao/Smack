@@ -16,7 +16,7 @@ class MessageService {
         channels = [Channel]()
     }
     
-    public private(set) var channels: [Channel]
+    var channels: [Channel]
     
     func getAllChannels(completion: @escaping CompletionHandler) {
         

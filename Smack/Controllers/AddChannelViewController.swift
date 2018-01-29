@@ -28,12 +28,22 @@ class AddChannelViewController: UIViewController {
         }
         guard let description = descriptionTxt.text else { return }
         
-        MessageService.instance.addChannel(name: name, description: description) { (success, message) in
+// added via api
+//        MessageService.instance.addChannel(name: name, description: description) { (success, message) in
+//            debugPrint(message)
+//
+//            if success {
+//                self.dismiss(animated: false, completion: nil)
+//                NotificationCenter.default.post(name: NOTIF_CHANNELS_LIST_UPDATED, object: nil)
+//            }
+//        }
+        
+        // added via socket
+        SocketService.instance.addChannel(name: name, description: description) { (success, message) in
             debugPrint(message)
             
             if success {
                 self.dismiss(animated: false, completion: nil)
-                NotificationCenter.default.post(name: NOTIF_CHANNELS_LIST_UPDATED, object: nil)
             }
         }
     }

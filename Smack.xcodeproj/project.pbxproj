@@ -10,6 +10,7 @@
 		881222A2128D11A76CBDCE29 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7580FD342E9BA2B8D491784C /* Pods_Smack.framework */; };
 		B32583D9201E9A830092D33A /* AddChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32583D7201E9A830092D33A /* AddChannelViewController.swift */; };
 		B32583DA201E9A830092D33A /* AddChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32583D8201E9A830092D33A /* AddChannelViewController.xib */; };
+		B32583DC201EBE320092D33A /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32583DB201EBE320092D33A /* SocketService.swift */; };
 		B3323657201AC3C7001720F5 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3323656201AC3C7001720F5 /* RoundedButton.swift */; };
 		B3323659201B4760001720F5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3323658201B4760001720F5 /* UserData.swift */; };
 		B34AD2952015631B00AAB95A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AD2942015631B00AAB95A /* GradientView.swift */; };
@@ -40,6 +41,7 @@
 		92682952F59B27C449AB2C95 /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 		B32583D7201E9A830092D33A /* AddChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelViewController.swift; sourceTree = "<group>"; };
 		B32583D8201E9A830092D33A /* AddChannelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelViewController.xib; sourceTree = "<group>"; };
+		B32583DB201EBE320092D33A /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		B3323656201AC3C7001720F5 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		B3323658201B4760001720F5 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B34AD2942015631B00AAB95A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				B3533E90201A094200CC12FA /* AuthService.swift */,
 				B379F91C201DEF5600773336 /* MessageService.swift */,
+				B32583DB201EBE320092D33A /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32583DC201EBE320092D33A /* SocketService.swift in Sources */,
 				B34AD29A20157DD800AAB95A /* LoginViewController.swift in Sources */,
 				B379F921201DF7D400773336 /* ChannelCell.swift in Sources */,
 				B3323657201AC3C7001720F5 /* RoundedButton.swift in Sources */,
