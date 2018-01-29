@@ -21,6 +21,7 @@ let URL_LOGIN = "\(BASE_URL)/account/login"
 let URL_ADD_USER = "\(BASE_URL)/user/add"
 let URL_FIND_USER_BY_EMAIL = "\(BASE_URL)/user/byEmail/"
 let URL_CHANNEL = "\(BASE_URL)/channel"
+let URL_ADD_CHANNEL = "\(BASE_URL)/channel/add"
 
 // SEGUES
 let TO_LOGIN = "login"
@@ -46,4 +47,4 @@ let BEARER_HEADER: [String: String] = [
 
 // Notification constants
 let NOTIF_USER_DATA_CHANGED = Notification.Name("notifUserDataChanged")
-
+let NOTIF_CHANNELS_LIST_UPDATED = Notification.Name("channelsListUpdated")

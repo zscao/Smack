@@ -23,8 +23,10 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         self.revealViewController().rearViewRevealWidth = self.view.frame.size.width - 60
+        
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.userDataChanged(_:)), name: NOTIF_USER_DATA_CHANGED, object: nil)
-
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelViewController.channelsListUpdated(_:)), name: NOTIF_CHANNELS_LIST_UPDATED, object: nil)
+        
         channelsView.delegate = self
         channelsView.dataSource = self
         
@@ -42,8 +44,20 @@ class ChannelViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    @IBAction func addChannelPressed(_ sender: Any) {
+        let channel = AddChannelViewController()
+        channel.modalPresentationStyle = .custom
+        present(channel, animated: false) {
+            debugPrint("present adding channel finished")
+        }
+    }
+    
     @objc func userDataChanged(_ notif: Notification) {
         setupView()
+    }
+    
+    @objc func channelsListUpdated(_ notif: Notification) {
+        self.channelsView.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

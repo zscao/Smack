@@ -36,8 +36,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TI3-Wb-2i3">
                     <rect key="frame" x="20" y="163.5" width="335" height="340"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeK-9A-Zxv">
-                            <rect key="frame" x="297" y="10" width="28" height="28"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeK-9A-Zxv">
+                            <rect key="frame" x="297" y="8" width="28" height="28"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="28" id="hNe-sZ-ymg"/>
                                 <constraint firstAttribute="height" constant="28" id="mT2-J8-7Ny"/>

@@ -32,6 +32,7 @@ class ChatViewController: UIViewController {
                 for channel in MessageService.instance.channels {
                     debugPrint(channel.name)
                 }
+                NotificationCenter.default.post(name: NOTIF_CHANNELS_LIST_UPDATED, object: nil)
             }
         }
     }

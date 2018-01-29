@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		881222A2128D11A76CBDCE29 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7580FD342E9BA2B8D491784C /* Pods_Smack.framework */; };
+		B32583D9201E9A830092D33A /* AddChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32583D7201E9A830092D33A /* AddChannelViewController.swift */; };
+		B32583DA201E9A830092D33A /* AddChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B32583D8201E9A830092D33A /* AddChannelViewController.xib */; };
 		B3323657201AC3C7001720F5 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3323656201AC3C7001720F5 /* RoundedButton.swift */; };
 		B3323659201B4760001720F5 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3323658201B4760001720F5 /* UserData.swift */; };
 		B34AD2952015631B00AAB95A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34AD2942015631B00AAB95A /* GradientView.swift */; };
@@ -36,6 +38,8 @@
 		5426CC0950D0D2C07429987E /* Pods-Smack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.debug.xcconfig"; sourceTree = "<group>"; };
 		7580FD342E9BA2B8D491784C /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92682952F59B27C449AB2C95 /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
+		B32583D7201E9A830092D33A /* AddChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelViewController.swift; sourceTree = "<group>"; };
+		B32583D8201E9A830092D33A /* AddChannelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelViewController.xib; sourceTree = "<group>"; };
 		B3323656201AC3C7001720F5 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		B3323658201B4760001720F5 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B34AD2942015631B00AAB95A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		B39CAF13201CA05700BD4296 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				B32583D8201E9A830092D33A /* AddChannelViewController.xib */,
 				B39CAF15201CA09300BD4296 /* ProfileViewController.xib */,
 			);
 			path = Xibs;
@@ -167,6 +172,7 @@
 				B34AD29B2015815200AAB95A /* CreateAccountViewController.swift */,
 				B39CAF09201C3DA800BD4296 /* PickAvatarViewController.swift */,
 				B39CAF14201CA09300BD4296 /* ProfileViewController.swift */,
+				B32583D7201E9A830092D33A /* AddChannelViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -263,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3E3300B2011C70200112B73 /* LaunchScreen.storyboard in Resources */,
+				B32583DA201E9A830092D33A /* AddChannelViewController.xib in Resources */,
 				B3E330082011C70200112B73 /* Assets.xcassets in Resources */,
 				B39CAF17201CA09300BD4296 /* ProfileViewController.xib in Resources */,
 				B3E330062011C70200112B73 /* Main.storyboard in Resources */,
@@ -337,6 +344,7 @@
 				B34AD2952015631B00AAB95A /* GradientView.swift in Sources */,
 				B34AD29C2015815200AAB95A /* CreateAccountViewController.swift in Sources */,
 				B39CAF0E201C501100BD4296 /* Protocols.swift in Sources */,
+				B32583D9201E9A830092D33A /* AddChannelViewController.swift in Sources */,
 				B39CAF0C201C419600BD4296 /* AvatarCell.swift in Sources */,
 				B3EDE7E9201213F600E320E4 /* SWRevealViewController.m in Sources */,
 				B39CAF16201CA09300BD4296 /* ProfileViewController.swift in Sources */,
